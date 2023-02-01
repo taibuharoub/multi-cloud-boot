@@ -1,6 +1,6 @@
-# Hands with Terraform and AWS
+# Hands-on with Terraform and AWS
 
-Use terraform to provision a AWS S3 bucket 
+Use terraform to provision a AWS S3 bucket
 
 What is terraform?
 
@@ -19,6 +19,7 @@ Terraform use cases:
 - Combine with multiple tools together
 
 Commands
+
 ```bash
 $more main.tf
 
