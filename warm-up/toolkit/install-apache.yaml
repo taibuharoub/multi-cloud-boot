@@ -17,3 +17,17 @@ tasks:
     template: 
       src: "files/index-template.html"
       dest: "/var/www/html/index.html" 
+  
+  - name: "Iptables: Allow traffic on port 80"
+    iptables:
+      chain: INPUT
+      protocol: tcp 
+      destination_port: 80
+      jump: ACCEPT
+      action: insert
+
+handlers:
+  - name: restart-apache
+    service:
+      name: apache2 
+      state: restarted
