@@ -1,0 +1,19 @@
+name: Ansible Playbook to install Apache on linux
+hosts: webservers # file containing list of servers to apply the configuration
+become: yes
+tasks:
+  - name: Install and configure the latest Apache version
+    apt: name=appache2 update_cache=yes state=latest
+
+  - name: Change directory permission
+    file:
+      path: "/var/www/html"
+      state: directory 
+      owner: www-data
+      group: www-data
+      mode: '0755'
+  
+  - name: Copy sample index file 
+    template: 
+      src: "files/index-template.html"
+      dest: "/var/www/html/index.html" 
